@@ -42,6 +42,7 @@ jobs:
         password: ${{ secrets.REMOTE_PASSWORD }}
         local-dir: './dist/'
         port: 22
+        protocol: ftps
         server-dir: '/root/servers/learn-react/'
       # env:
       #   FTP_SERVER: '49.233.40.195' # 你的nginx服务器公网ip
