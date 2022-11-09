@@ -45,13 +45,6 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         username: ${{ secrets.USER_NAME }}
         key: ${{ secrets.SSH_KEY }}
-      # with:
-      #   host: ${{ secrets.REMOTE_HOST }}
-      #   username: 'root'
-      #   port: '22'
-      #   key: ${{ secrets.SSH_KEY }}
-      #   source: './dist/*'
-      #   target: ${{ secrets.REMOTE_PATH }}
       # uses: SamKirkland/FTP-Deploy-Action@2.0.0 # 使用的sftp插件，将项目传到服务器上，这里使用2.0版本，最新版本4.0不支持sftp
       # env:
       #   FTP_SERVER: ${{ secrets.REMOTE_HOST }} # 你的nginx服务器公网ip
