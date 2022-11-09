@@ -40,8 +40,10 @@ jobs:
       with:
         host: '49.233.40.195'
         username: 'root'
-        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
+        password: ${{ secrets.REMOTE_PASSWORD }}
         port: '22'
+        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
+        
         # source: "./package.json"
         # target: "/root/servers/learn-react"
         # source: 'dist/*'
