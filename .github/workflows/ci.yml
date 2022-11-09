@@ -75,5 +75,3 @@ jobs:
       #   local-dir: './dist/'
       #   port: 22
       #   protocol: ftps
-      #   server-dir: '/root/servers/learn-react/'
-  
