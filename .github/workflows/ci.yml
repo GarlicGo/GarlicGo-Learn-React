@@ -33,4 +33,13 @@ jobs:
     - name: Build
       run: |
         yarn build:pure
-        
+    
+     - name: Deploy to Server
+      uses: appleboy/scp-action@master
+      with:
+        source: 'dist/*'
+        host: ${{ secrets.REMOTE_HOST }}
+        target: ${{ secrets.REMOTE_PATH }}
+        port: ${{ secrets.SERVER_PORT }}
+        username: ${{ secrets.USER_NAME }}
+        key: ${{ secrets.SSH_KEY }}
