@@ -1,10 +1,6 @@
-import React, { Suspense, lazy } from "react";
-import { Link, Routes, Route } from "react-router-dom";
+import React from "react";
 import Layout from "./components/Layout";
 import Router from "./routers/router";
-
-const Home = lazy(() => import("./pages/Home"));
-const About = lazy(() => import("./pages/About"));
 
 function App() {
   return (
