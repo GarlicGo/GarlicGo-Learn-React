@@ -49,8 +49,8 @@ jobs:
         server: '49.233.40.195'
         # port: ${{ secrets.SERVER_PORT }}
         username: 'root'
-        password: '${{ secrets.REMOTE_PASSWORD }}'
-        # ssh_private_key: '${{ secrets.SSH_KEY }}'
+        # password: '${{ secrets.REMOTE_PASSWORD }}'
+        ssh_private_key: '${{ secrets.SSH_KEY }}'
         # METHOD: sftp # 指定服务为sftp
         local_path: './dist/*'
         remote_path: '${{ secrets.REMOTE_PATH }}'
