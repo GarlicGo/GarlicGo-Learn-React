@@ -41,9 +41,9 @@ jobs:
         host: '49.233.40.195'
         username: root
         port: 22
-        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
+        password: ${{ secrets.REMOTE_PASSWORD }}
         source: "./dist/"
-        target: "~/servers/learn-react/"
+        target: "/root/"
       # uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       # with:
       #     username: 'root'
