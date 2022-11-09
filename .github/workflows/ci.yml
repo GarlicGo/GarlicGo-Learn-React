@@ -46,7 +46,7 @@ jobs:
       #   METHOD: sftp # 指定服务为sftp
       #   PORT: 22 # 你的nginx服务器ssh端口
       with:
-        server: '49.233.40.195'
+        server: ${{ secrets.REMOTE_HOST }}
         # port: ${{ secrets.SERVER_PORT }}
         username: 'root'
         # password: '${{ secrets.REMOTE_PASSWORD }}'
