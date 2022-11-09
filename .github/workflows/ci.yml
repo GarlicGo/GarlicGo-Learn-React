@@ -51,5 +51,4 @@ jobs:
         # port: ${{ secrets.SERVER_PORT }}
         # username: ${{ secrets.USER_NAME }}
         # password: ${{ secrets.REMOTE_PASSWORD }}
-        # key: ${{ secrets.SSH_KEY }}
       
