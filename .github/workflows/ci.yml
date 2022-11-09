@@ -35,21 +35,21 @@ jobs:
         yarn build:pure
   
     - name: Deploy to Server
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: 'root'
-        port: '22'
-        key: ${{ secrets.SSH_KEY }}
-        source: './dist/*'
-        target: ${{ secrets.REMOTE_PATH }}
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      # with:
+      #   host: ${{ secrets.REMOTE_HOST }}
+      #   username: 'root'
+      #   port: '22'
+      #   key: ${{ secrets.SSH_KEY }}
+      #   source: './dist/*'
+      #   target: ${{ secrets.REMOTE_PATH }}
       # uses: SamKirkland/FTP-Deploy-Action@2.0.0 # 使用的sftp插件，将项目传到服务器上，这里使用2.0版本，最新版本4.0不支持sftp
-      # env:
-      #   FTP_SERVER: ${{ secrets.REMOTE_HOST }} # 你的nginx服务器公网ip
-      #   FTP_USERNAME: ${{ secrets.USER_NAME }} # 你的nginx服务器用户名
-      #   FTP_PASSWORD: ${{ secrets.REMOTE_PASSWORD }} # 你的nginx服务器密码
-      #   LOCAL_DIR: ./dist/ # 你react项目build好的文件的路径,每次服务器上会自动删除对应的文件夹后重新覆盖
-      #   REMOTE_DIR: ${{ secrets.REMOTE_PATH }} # 你要把你build好的文件夹放到nginx服务器上的什么位置
-      #   METHOD: sftp # 指定服务为sftp
-      #   PORT: 22 # 你的nginx服务器ssh端口
+      env:
+        FTP_SERVER: ${{ secrets.REMOTE_HOST }} # 你的nginx服务器公网ip
+        FTP_USERNAME: ${{ secrets.USER_NAME }} # 你的nginx服务器用户名
+        FTP_PASSWORD: ${{ secrets.REMOTE_PASSWORD }} # 你的nginx服务器密码
+        LOCAL_DIR: ./dist/ # 你react项目build好的文件的路径,每次服务器上会自动删除对应的文件夹后重新覆盖
+        REMOTE_DIR: ${{ secrets.REMOTE_PATH }} # 你要把你build好的文件夹放到nginx服务器上的什么位置
+        METHOD: sftp # 指定服务为sftp
+        PORT: 22 # 你的nginx服务器ssh端口
       
