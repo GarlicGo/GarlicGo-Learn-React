@@ -36,7 +36,13 @@ jobs:
   
     - name: Deploy to Server
       uses: appleboy/scp-action@master
-
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: 'root'
+        port: '22'
+        key: ${{ secrets.SSH_KEY }}
+        source: './dist/*'
+        target: ${{ secrets.REMOTE_PATH }}
       # uses: SamKirkland/FTP-Deploy-Action@2.0.0 # 使用的sftp插件，将项目传到服务器上，这里使用2.0版本，最新版本4.0不支持sftp
       # env:
       #   FTP_SERVER: ${{ secrets.REMOTE_HOST }} # 你的nginx服务器公网ip
@@ -46,10 +52,4 @@ jobs:
       #   REMOTE_DIR: ${{ secrets.REMOTE_PATH }} # 你要把你build好的文件夹放到nginx服务器上的什么位置
       #   METHOD: sftp # 指定服务为sftp
       #   PORT: 22 # 你的nginx服务器ssh端口
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: 'root'
-        port: '22'
-        ssh_private_key: ${{ secrets.SSH_KEY }}
-        source: './dist/*'
-        target: ${{ secrets.REMOTE_PATH }}
+      
