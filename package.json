@@ -8,6 +8,7 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.config.js",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx src/",
+    "commit-check": "node ./commitCheck.js",
     "prepare": "husky install"
   },
   "keywords": [],
