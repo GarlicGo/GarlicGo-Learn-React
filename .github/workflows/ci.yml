@@ -36,6 +36,7 @@ jobs:
 
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      with:
         server: '49.233.40.195'
         username: root
         password: ${{ secrets.REMOTE_PASSWORD }}
