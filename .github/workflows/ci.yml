@@ -37,12 +37,12 @@ jobs:
 
     - name: 📂 Sync Files
       uses: SamKirkland/web-deploy@v1
-        with:
-          target-server: '49.233.40.195'
-          remote-user: root
-          private-ssh-key: ${{ secrets.SSH_KEY }}
-          source-path: ./dist/
-          destination-path: ~/servers/learn-react/
+      with:
+        target-server: '49.233.40.195'
+        remote-user: root
+        private-ssh-key: ${{ secrets.SSH_KEY }}
+        source-path: ./dist/
+        destination-path: ~/servers/learn-react/
       # uses: SamKirkland/FTP-Deploy-Action@4.3.2
       # with:
       #   server: '49.233.40.195'
