@@ -43,7 +43,7 @@ jobs:
         LOCAL_DIR: ./dist/ # 你react项目build好的文件的路径,每次服务器上会自动删除对应的文件夹后重新覆盖
         REMOTE_DIR: ${{ secrets.REMOTE_PATH }} # 你要把你build好的文件夹放到nginx服务器上的什么位置
         METHOD: sftp # 指定服务为sftp
-        PORT: ${{ secrets.SERVER_PORT }} # 你的nginx服务器ssh端口
+        PORT: 22 # 你的nginx服务器ssh端口
       # with:
       #   source: 'dist/*'
       #   host: ${{ secrets.REMOTE_HOST }}
