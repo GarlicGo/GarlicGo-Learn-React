@@ -7,7 +7,11 @@ import "./index.less";
 const name = "GarlicGo Learn React";
 const prefix = "cp-layout";
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
   console.log("location", location, location.pathname === "/");
 
@@ -27,12 +31,12 @@ export default function Layout({ children }) {
             `${prefix}-header-component`
           )}
         >
-          {/* <Link href="/">
+          <Link to="/">
             <img src={AVATAR_URL} alt={name} />
           </Link>
-          <Link href="/">
+          <Link to="/">
             <h2>{name}</h2>
-          </Link> */}
+          </Link>
         </div>
       )}
 
@@ -47,3 +51,5 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+export default Layout;
