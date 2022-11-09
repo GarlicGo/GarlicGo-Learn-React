@@ -15,6 +15,7 @@ jobs:
         node-version: [16.x]
 
     steps:
+    - name: 🚚 Get Latest Code
     - uses: actions/checkout@v3
 
     - name: Use Node.js ${{ matrix.node-version }}
@@ -30,20 +31,27 @@ jobs:
       run: |
         yarn lint
         
-    - name: Build
+    - name: 🚀 Build
       run: |
         yarn build:pure
 
-    - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
-      with:
-        server: '49.233.40.195'
-        username: root
-        password: ${{ secrets.REMOTE_PASSWORD }}
-        local-dir: './dist/'
-        port: 22
-        protocol: ftps
-        server-dir: '/root/servers/learn-react/'
+    - name: 📂 Sync Files
+      uses: SamKirkland/web-deploy@v1
+        with:
+          target-server: '49.233.40.195'
+          remote-user: root
+          private-ssh-key: ${{ secrets.SSH_KEY }}
+          source-path: ./dist/
+          destination-path: ~/servers/learn-react/
+      # uses: SamKirkland/FTP-Deploy-Action@4.3.2
+      # with:
+      #   server: '49.233.40.195'
+      #   username: root
+      #   password: ${{ secrets.REMOTE_PASSWORD }}
+      #   local-dir: './dist/'
+      #   port: 22
+      #   protocol: ftps
+      #   server-dir: '/root/servers/learn-react/'
       # env:
       #   FTP_SERVER: '49.233.40.195' # 你的nginx服务器公网ip
       #   FTP_USERNAME: 'root' # 你的nginx服务器用户名
