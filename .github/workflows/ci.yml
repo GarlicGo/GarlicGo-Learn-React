@@ -47,9 +47,7 @@ jobs:
       #   PORT: 22 # 你的nginx服务器ssh端口
       with:
         server: ${{ secrets.REMOTE_HOST }}
-        # port: ${{ secrets.SERVER_PORT }}
         username: 'root'
-        # password: '${{ secrets.REMOTE_PASSWORD }}'
         ssh_private_key: '${{ secrets.SSH_KEY }}'
         local_path: './dist/*'
         remote_path: '${{ secrets.REMOTE_PATH }}'
