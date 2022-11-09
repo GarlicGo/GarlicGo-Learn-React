@@ -34,6 +34,7 @@ jobs:
       run: |
         yarn build:pure
   
+    - uses: actions/checkout@master
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
@@ -41,8 +42,8 @@ jobs:
         username: 'root'
         password: ${{ secrets.PASSWORD }}
         port: '22'
-        # source: "tests/a.txt,tests/b.txt"
-        # target: "test"
+        # source: "./package.json"
+        # target: "/root/servers/learn-react"
         # source: 'dist/*'
         # host: ${{ secrets.REMOTE_HOST }}
         # target: ${{ secrets.REMOTE_PATH }}
