@@ -41,7 +41,7 @@ jobs:
         host: '49.233.40.195'
         username: root
         port: 22
-        password: ${{ secrets.REMOTE_PASSWORD }}
+        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
         source: "./dist/"
         target: "/root/"
       # uses: wlixcc/SFTP-Deploy-Action@v1.2.4
