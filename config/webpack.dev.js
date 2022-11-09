@@ -23,7 +23,7 @@ const getStyleLoaders = (pre) => {
 };
 
 module.exports = {
-  entry: "./src/main.js",
+  entry: "./src/index.tsx",
   output: {
     path: undefined,
     filename: "static/js/[name].js",
@@ -77,6 +77,19 @@ module.exports = {
           ],
         },
       },
+      {
+        test: /.(ts|tsx)$/, // 匹配.ts, tsx文件
+        use: {
+          loader: 'babel-loader',
+          options: {
+            // 预设执行顺序由右往左,所以先处理ts,再处理jsx
+            presets: [
+              '@babel/preset-react',
+              '@babel/preset-typescript'
+            ]
+          }
+        }
+      },
     ],
   },
   // 处理html
@@ -105,7 +118,7 @@ module.exports = {
   // webpack解析模块加载选项
   resolve: {
     // 自动补全文件扩展名
-    extensions: [".jsx", ".js", ".json"],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
     host: "localhost",
