@@ -6,5 +6,6 @@ GarlicGo-Learn-React
 
 To Do List
 
-- Add lint-staged optimize the lint check
-- Optimize Webpack config (Mainly for configuration multiplexing)
+- Add lint-staged optimize the lint check.
+- Optimize Webpack config (Mainly for configuration multiplexing).
+- Synchronize prettier and eslint configurations.

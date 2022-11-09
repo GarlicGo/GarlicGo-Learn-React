@@ -8,3 +8,4 @@ GarlicGo 学 React
 
 - 添加 lint-staged 对 lint 检查进行优化
 - 优化 Webpack 配置（主要针对配置复用）
+- 同步 prettier 和 eslint 配置
