@@ -1,11 +1,11 @@
-import React from "react";
-import classnames from "classnames";
-import { Link, useLocation } from "react-router-dom";
-import { AVATAR_URL } from "../../common/constant";
-import "./index.less";
+import React from 'react';
+import classnames from 'classnames';
+import { Link, useLocation } from 'react-router-dom';
+import { AVATAR_URL } from '../../common/constant';
+import './index.less';
 
-const name = "GarlicGo Learn React";
-const prefix = "cp-layout";
+const name = 'GarlicGo Learn React';
+const prefix = 'cp-layout';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,11 +13,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
-  console.log("location", location, location.pathname === "/");
 
   return (
     <div>
-      {location.pathname === "/" ? (
+      {location.pathname === '/' ? (
         <div
           className={classnames(`${prefix}-header`, `${prefix}-header-home`)}
         >
@@ -28,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div
           className={classnames(
             `${prefix}-header`,
-            `${prefix}-header-component`
+            `${prefix}-header-component`,
           )}
         >
           <Link to="/">
@@ -41,7 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       <div>{children}</div>
-      {location.pathname !== "/" && (
+      {location.pathname !== '/' && (
         <div>
           <Link to="/" className={`${prefix}-back`}>
             <div>← Back to home</div>
@@ -50,6 +49,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
     </div>
   );
-}
+};
 
 export default Layout;

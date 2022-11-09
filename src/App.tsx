@@ -1,14 +1,14 @@
-import React from "react";
-import Layout from "./components/Layout";
-import Router from "./routers/router";
+import React from 'react';
+import Layout from './components/Layout';
+import Router from './routers/router';
 
-function App() {
+const App = () => {
   return (
     <Layout>
       <h1>App TS</h1>
       <Router />
     </Layout>
   );
-}
+};
 
 export default App;

@@ -221,8 +221,11 @@ module.exports = {
     host: "localhost",
     port: 3000,
     open: true,
-    hot: true, // 开启HMR
-    historyApiFallback: true, // 解决前端路由刷新404问题
+    // 开启HMR
+    hot: true,
+    // 解决前端路由刷新404问题
+    historyApiFallback: true,
   },
-  performance: false, // 关闭性能分析，提升打包速度
+  // 关闭性能分析，提升打包速度
+  performance: false,
 };
