@@ -40,7 +40,7 @@ jobs:
         FTP_SERVER: '49.233.40.195' # 你的nginx服务器公网ip
         FTP_USERNAME: 'root' # 你的nginx服务器用户名
         FTP_PASSWORD: ${{ secrets.REMOTE_PASSWORD }} # 你的nginx服务器密码
-        LOCAL_DIR: ./build/ # 你react项目build好的文件的路径,每次服务器上会自动删除对应的文件夹后重新覆盖
+        LOCAL_DIR: './build/' # 你react项目build好的文件的路径,每次服务器上会自动删除对应的文件夹后重新覆盖
         REMOTE_DIR: '/root/servers/learn-react' # 你要把你build好的文件夹放到nginx服务器上的什么位置
         METHOD: sftp # 指定服务为sftp
         PORT: '22' # 你的nginx服务器ssh端口
