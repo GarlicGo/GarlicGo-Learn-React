@@ -35,15 +35,15 @@ jobs:
       run: |
         yarn build:pure
 
-    - name: 📂 Sync Files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+    - name: copy file via ssh key
+      uses: appleboy/scp-action@master
       with:
-        local-dir: dist/
-        server-dir: /root/servers/learn-react/
-        server: 49.233.40.195
+        host: '49.233.40.195'
         username: root
-        password: ${{secrets.REMOTE_PASSWORD}}
-        port: 2022
+        port: 22
+        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
+        source: "./dist/"
+        target: "~/servers/learn-react/"
       # uses: SamKirkland/web-deploy@v1
       # with:
       #   target-server: '49.233.40.195'
