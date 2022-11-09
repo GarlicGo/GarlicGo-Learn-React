@@ -34,8 +34,6 @@ jobs:
       run: |
         yarn build:pure
   
-    # - name: Deploy to Server
-    #   uses: SamKirkland/FTP-Deploy-Action@2.0.0
     - name: Deploy to Server
       uses: appleboy/scp-action@master
       with:
