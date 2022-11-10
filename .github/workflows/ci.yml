@@ -41,7 +41,6 @@ jobs:
         host: '49.233.40.195'
         username: root
         port: 22
-        key: ${{ secrets.TENCENT_SSH_KEY_GA }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: "./dist/"
         target: "/root/"
-        
