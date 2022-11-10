@@ -5,7 +5,7 @@ import Router from './routers/router';
 const App = () => {
   return (
     <Layout>
-      <h1>App TS</h1>
+      <h1>App Nav</h1>
       <Router />
     </Layout>
   );
