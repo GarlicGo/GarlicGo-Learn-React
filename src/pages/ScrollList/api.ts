@@ -1,6 +1,6 @@
 import { generate } from 'randomstring';
 
-export const baseDataList = [
+const baseDataList = [
   'JavaScript',
   'TypeScript',
   'CSS',
