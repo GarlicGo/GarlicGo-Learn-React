@@ -34,7 +34,7 @@ export const routers: RouterItem[] = routerConfig.map((router) => ({
   description: router?.description || router.path.split('/').pop() || 'No description',
 }));
 
-function Router() {
+const Router = () => {
   return (
     <Routes>
       {
@@ -45,6 +45,6 @@ function Router() {
       <Route path="/" element={<Home />} />
     </Routes>
   );
-}
+};
 
 export default Router;
