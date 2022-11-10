@@ -15,13 +15,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const location = useLocation();
 
   return (
-    <div>
+    <div className={prefix}>
       {location.pathname === '/' ? (
         <div
           className={classnames(`${prefix}-header`, `${prefix}-header-home`)}
         >
           <img src={AVATAR_URL} alt={name} />
-          <h1>{name}</h1>
+          <h1 className={`${prefix}-header-name`}>{name}</h1>
         </div>
       ) : (
         <div
@@ -33,20 +33,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <Link to="/">
             <img src={AVATAR_URL} alt={name} />
           </Link>
-          <Link to="/">
-            <h2>{name}</h2>
+          <Link className={`${prefix}-header-name-page`} to="/">
+            <h2 className={`${prefix}-header-name`}>{name}</h2>
           </Link>
         </div>
       )}
 
-      <div>{children}</div>
-      {location.pathname !== '/' && (
-        <div>
-          <Link to="/" className={`${prefix}-back`}>
-            <div>← Back to home</div>
-          </Link>
-        </div>
-      )}
+      <div className={classnames({
+        [`${prefix}-children-layout-home`]: location.pathname === '/',
+        [`${prefix}-children-layout-page`]: location.pathname !== '/',
+      })}>
+        {children}
+        {location.pathname !== '/' && (
+          <div>
+            <Link to="/" className={`${prefix}-back`}>
+              <div>← Back to home</div>
+            </Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

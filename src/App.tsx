@@ -1,11 +1,10 @@
 import React from 'react';
 import Layout from './components/Layout';
-import Router from './routers/router';
+import Router from './router';
 
 const App = () => {
   return (
     <Layout>
-      <h1>App Nav</h1>
       <Router />
     </Layout>
   );
