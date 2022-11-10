@@ -4,7 +4,7 @@
 
 GarlicGo 学 React
 
-项目基于 Github 的 Action 的 CI/CD 流程。[[ 线上入口 ](https://learn-react.garlicgo.com/)] [[ Github 仓库 ](https://github.com/GarlicGo/GarlicGo-Learn-React)]
+项目基于 Github Action 完成 CI/CD 流程。[[ 线上入口 ](https://learn-react.garlicgo.com/)] [[ Github 仓库 ](https://github.com/GarlicGo/GarlicGo-Learn-React)]
 
 ![CI/CD](./docs/imgs/cicd.png)
 
