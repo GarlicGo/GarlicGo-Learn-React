@@ -1,5 +1,7 @@
 import React from 'react';
 
-export default function NoticeScroll() {
+const NoticeScroll = () => {
   return <h1>NoticeScroll</h1>;
-}
+};
+
+export default NoticeScroll;

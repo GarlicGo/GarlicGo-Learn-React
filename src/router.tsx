@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import About from './pages/About';
 import NoticeScroll from './pages/NoticeScroll';
 import ScrollList from './pages/ScrollList';
 
@@ -13,11 +12,6 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
-  {
-    description: 'About',
-    path: 'About',
-    element: <About />,
-  },
   {
     path: 'NoticeScroll',
     element: <NoticeScroll />,
