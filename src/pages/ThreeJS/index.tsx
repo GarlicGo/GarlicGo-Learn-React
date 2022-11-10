@@ -34,7 +34,7 @@ const ThreeJS = () => {
   return (
     <div className={prefix}>
       <ShowItem title="Fiber Test" element={<TestFiber />} />
-      <ShowItem title="Rotate Box" description="@react-three/fiber Readme Demo" element={<RotateBox />} />
+      <ShowItem title="Rotate Box" description="@react-three/fiber README Demo" element={<RotateBox />} />
     </div>
   );
 };

@@ -14,7 +14,7 @@ interface RouterConfigItem {
 
 const routerConfig: RouterConfigItem[] = [
   {
-    description: 'ThreeJS 探索',
+    description: '[ Web 2D/3D 系列 ] ThreeJS 探索',
     path: 'ThreeJS',
     element: <ThreeJS />,
   },
