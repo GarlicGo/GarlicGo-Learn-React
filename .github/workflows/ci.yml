@@ -44,34 +44,4 @@ jobs:
         key: ${{ secrets.TENCENT_SSH_KEY_GA }}
         source: "./dist/"
         target: "/root/"
-      # uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-      # with:
-      #     username: 'root'
-      #     server: '49.233.40.195'
-      #     ssh_private_key: ${{ secrets.TENCENT_SSH_KEY_GA }} 
-      #     local_path: './dist/*'
-      #     remote_path: '/root/servers/learn-react/'
-      #     sftpArgs: '-o ConnectTimeout=5'
-      # uses: appleboy/scp-action@master
-      # with:
-      #   host: '49.233.40.195'
-      #   username: root
-      #   port: 22
-      #   key: ${{ secrets.TENCENT_SSH_KEY_GA }}
-      #   source: "./dist/"
-      #   target: "~/servers/learn-react/"
-      # uses: SamKirkland/web-deploy@v1
-      # with:
-      #   target-server: '49.233.40.195'
-      #   remote-user: root
-      #   private-ssh-key: ${{ secrets.SSH_KEY }}
-      #   source-path: ./dist/
-      #   destination-path: ~/servers/learn-react/
-      # uses: SamKirkland/FTP-Deploy-Action@4.3.2
-      # with:
-      #   server: '49.233.40.195'
-      #   username: root
-      #   password: ${{ secrets.REMOTE_PASSWORD }}
-      #   local-dir: './dist/'
-      #   port: 22
-      #   protocol: ftps
+        
