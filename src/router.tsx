@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import NoticeScroll from './pages/NoticeScroll';
+import ScrollList from './pages/ScrollList';
 
 interface RouterConfigItem {
   description?: string;
@@ -20,6 +21,11 @@ const routerConfig: RouterConfigItem[] = [
   {
     path: 'NoticeScroll',
     element: <NoticeScroll />,
+  },
+  {
+    description: '无限滚动加载列表（非虚拟列表）',
+    path: 'ScrollList',
+    element: <ScrollList />,
   },
 ];
 

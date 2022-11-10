@@ -1,6 +1,12 @@
 const ignoreWords = [
   'classnames',
   'pathname',
+  'num',
+  'randomstring',
+  'memoized',
+  'unmount',
+  'Debounce',
+  'Rect'
 ];
 
 module.exports = {
