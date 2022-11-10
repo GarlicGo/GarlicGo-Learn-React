@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import NoticeScroll from './pages/NoticeScroll';
+// import NoticeScroll from './pages/NoticeScroll';
 import ScrollList from './pages/ScrollList';
+import ThreeJS from './pages/ThreeJS';
 
 interface RouterConfigItem {
   description?: string;
@@ -13,9 +14,14 @@ interface RouterConfigItem {
 
 const routerConfig: RouterConfigItem[] = [
   {
-    path: 'NoticeScroll',
-    element: <NoticeScroll />,
+    description: 'ThreeJS 探索',
+    path: 'ThreeJS',
+    element: <ThreeJS />,
   },
+  // {
+  //   path: 'NoticeScroll',
+  //   element: <NoticeScroll />,
+  // },
   {
     description: '无限滚动加载列表（非虚拟列表）',
     path: 'ScrollList',

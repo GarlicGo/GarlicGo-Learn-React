@@ -6,7 +6,9 @@ const ignoreWords = [
   'memoized',
   'unmount',
   'Debounce',
-  'Rect'
+  'Rect',
+  'Renderer',
+  'antialias'
 ];
 
 module.exports = {
