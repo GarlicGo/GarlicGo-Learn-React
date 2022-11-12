@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-// import NoticeScroll from './pages/NoticeScroll';
-import ScrollList from './pages/ScrollList';
-import ThreeJS from './pages/ThreeJS';
+
+const Home = lazy(() => import('./pages/Home'));
+const NoticeScroll = lazy(() => import('./pages/ScrollList'));
+const ScrollList = lazy(() => import('./pages/ScrollList'));
+const ThreeJS = lazy(() => import('./pages/ThreeJS'));
+
+interface RouterItem {
+  description: string;
+  path: string;
+  pathName: string;
+  element: React.ReactNode;
+}
 
 interface RouterConfigItem {
   description?: string;
@@ -18,10 +26,10 @@ const routerConfig: RouterConfigItem[] = [
     path: 'ThreeJS',
     element: <ThreeJS />,
   },
-  // {
-  //   path: 'NoticeScroll',
-  //   element: <NoticeScroll />,
-  // },
+  {
+    path: 'NoticeScroll',
+    element: <NoticeScroll />,
+  },
   {
     description: '无限滚动加载列表（非虚拟列表）',
     path: 'ScrollList',
@@ -29,27 +37,25 @@ const routerConfig: RouterConfigItem[] = [
   },
 ];
 
-interface RouterItem extends RouterConfigItem {
-  pathName: string;
-  description: string;
-}
-
 export const routers: RouterItem[] = routerConfig.map((router) => ({
   ...router,
-  pathName: router?.pathName || router.path.split('/').pop() || 'No path name',
-  description: router?.description || router.path.split('/').pop() || 'No description',
+  pathName: router?.pathName || router.path?.split('/').pop() || 'No path name',
+  description: router?.description || router.path?.split('/').pop() || 'No description',
 }));
 
 const Router = () => {
   return (
-    <Routes>
-      {
-        routers.map(router => (
-          <Route path={router.path} element={router.element} key={router.path} />
-        ))
-      }
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <Suspense fallback={<div>Lazy Loading</div>}>
+      <Routes>
+        {
+          routers.map(router => (
+            <Route path={router.path} element={router.element} key={router.path} />
+          ))
+        }
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Suspense>
+
   );
 };
 
