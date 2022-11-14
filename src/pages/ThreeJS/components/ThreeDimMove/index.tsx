@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-unknown-property */
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Space, Button } from "@douyinfe/semi-ui";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Line, OrbitControls } from "@react-three/drei";
@@ -30,10 +30,6 @@ const Cube = ({ cubeStartPosition, cubeTarget }: any) => {
   const distanceZ = useMemo(() => {
     return cubeTarget[2] - cubeStartPosition[2];
   }, [cubeTarget, cubeStartPosition]);
-
-  useEffect(() => {
-    console.log("cubeRef", cubeRef);
-  }, [cubeRef]);
 
   useFrame(() => {
     if (!cubeRef?.current?.position) {
