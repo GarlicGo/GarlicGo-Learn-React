@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('./pages/Home'));
-const NoticeScroll = lazy(() => import('./pages/ScrollList'));
+const NoticeScroll = lazy(() => import('./pages/NoticeScroll'));
 const ScrollList = lazy(() => import('./pages/ScrollList'));
 const ThreeJS = lazy(() => import('./pages/ThreeJS'));
 

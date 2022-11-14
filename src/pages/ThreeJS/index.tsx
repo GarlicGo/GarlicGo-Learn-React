@@ -1,7 +1,10 @@
 /* eslint-disable react/no-unknown-property */
+import classNames from 'classnames';
 import React from 'react';
 import RotateBox from './components/RotateBox';
-import TestFiber from './components/TestFiber';
+import TwoDimPlane from './components/TwoDimPlane';
+import ThreeDimPlane from './components/ThreeDimPlane';
+import ThreeDimMove from './components/ThreeDimMove';
 import './index.less';
 
 const prefix = 'page-three-js';
@@ -10,12 +13,14 @@ interface ShowItemProps {
   title: string;
   description?: string;
   element: React.ReactNode;
+  hasBorder?: boolean;
 }
 
 const ShowItem: React.FC<ShowItemProps> = ({
   title,
   description,
   element,
+  hasBorder = true,
 }) => {
   return (
     <>
@@ -23,7 +28,9 @@ const ShowItem: React.FC<ShowItemProps> = ({
         <h2>{title}</h2>
         <div>{description}</div>
       </div>
-      <div className={`${prefix}-item-container`}>
+      <div className={classNames({
+        [`${prefix}-item-container`]: hasBorder,
+      })}>
         {element}
       </div>
     </>
@@ -33,8 +40,27 @@ const ShowItem: React.FC<ShowItemProps> = ({
 const ThreeJS = () => {
   return (
     <div className={prefix}>
-      <ShowItem title="Fiber Test" element={<TestFiber />} />
-      <ShowItem title="Rotate Box" description="@react-three/fiber README Demo" element={<RotateBox />} />
+      <div>
+        本节内容技术栈：TypeScript、React、ThreeJS、react-three/fiber、react-three/drei。
+      </div>
+      <ShowItem
+        title="Rotate Box"
+        // description="@react-three/fiber README Demo"
+        element={<RotateBox />}
+      />
+      <ShowItem
+        title="3D Camera 下的 2D 平面"
+        element={<TwoDimPlane />}
+      />
+      <ShowItem
+        title="3D Camera 下的 3D 物体"
+        element={<ThreeDimPlane />}
+      />
+      <ShowItem
+        title="物体运动"
+        element={<ThreeDimMove />}
+        hasBorder={false}
+      />
     </div>
   );
 };

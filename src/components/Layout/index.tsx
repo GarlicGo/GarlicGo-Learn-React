@@ -45,8 +45,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       })}>
         {children}
         {location.pathname !== '/' && (
-          <div>
-            <Link to="/" className={`${prefix}-back`}>
+          <div className={`${prefix}-back`}>
+            <Link to="/" className={`${prefix}-back-text`}>
               <div>← Back to home</div>
             </Link>
           </div>
