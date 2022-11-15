@@ -74,6 +74,7 @@ const ThreeJS = () => {
           text: "双指缩放(或鼠标滚轮)拖动画布、双指(或鼠标右键)拖动拖动画布",
         }}
         element={<ThreeDimPlaneLock />}
+        hasBorder={false}
       />
       <ShowItem
         title="3D Camera 下的 2D 平面"
