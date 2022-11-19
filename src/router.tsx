@@ -5,6 +5,7 @@ const Home = lazy(() => import('./pages/Home'));
 const NoticeScroll = lazy(() => import('./pages/NoticeScroll'));
 const ScrollList = lazy(() => import('./pages/ScrollList'));
 const ThreeJS = lazy(() => import('./pages/ThreeJS'));
+const ReactSpring = lazy(() => import('./pages/ReactSpring'));
 
 interface RouterItem {
   description: string;
@@ -21,6 +22,11 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
+  {
+    description: '[ Web 2D/3D 系列 ] React Spring',
+    path: 'ReactSpring',
+    element: <ReactSpring />,
+  },
   {
     description: '[ Web 2D/3D 系列 ] ThreeJS 探索',
     path: 'ThreeJS',
