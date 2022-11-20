@@ -6,6 +6,7 @@ const NoticeScroll = lazy(() => import('./pages/NoticeScroll'));
 const ScrollList = lazy(() => import('./pages/ScrollList'));
 const ThreeJS = lazy(() => import('./pages/ThreeJS'));
 const ReactSpring = lazy(() => import('./pages/ReactSpring'));
+const Watermark = lazy(() => import('./pages/Watermark'));
 
 interface RouterItem {
   description: string;
@@ -22,6 +23,11 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
+  {
+    description: '前端明水印',
+    path: 'Watermark',
+    element: <Watermark />,
+  },
   {
     description: '[ Web 2D/3D 系列 ] React Spring',
     path: 'ReactSpring',

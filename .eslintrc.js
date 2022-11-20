@@ -8,7 +8,8 @@ const ignoreWords = [
   'Debounce',
   'Rect',
   'Renderer',
-  'antialias'
+  'antialias',
+  'ctx'
 ];
 
 module.exports = {
