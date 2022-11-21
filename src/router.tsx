@@ -7,6 +7,7 @@ const ScrollList = lazy(() => import('./pages/ScrollList'));
 const ThreeJS = lazy(() => import('./pages/ThreeJS'));
 const ReactSpring = lazy(() => import('./pages/ReactSpring'));
 const Watermark = lazy(() => import('./pages/Watermark'));
+const ClientStorage = lazy(() => import('./pages/ClientStorage'));
 
 interface RouterItem {
   description: string;
@@ -37,6 +38,11 @@ const routerConfig: RouterConfigItem[] = [
     description: '[ Web 2D/3D 系列 ] ThreeJS 探索',
     path: 'ThreeJS',
     element: <ThreeJS />,
+  },
+  {
+    description: '客户端存储',
+    path: 'ClientStorage',
+    element: <ClientStorage />,
   },
   {
     path: 'NoticeScroll',
