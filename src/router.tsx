@@ -9,6 +9,12 @@ const ReactSpring = lazy(() => import('./pages/ReactSpring'));
 const Watermark = lazy(() => import('./pages/Watermark'));
 const ClientStorage = lazy(() => import('./pages/ClientStorage'));
 
+/**
+ * TODO:
+ * 1. 电梯
+ * 2. 无人物遮挡图层（弹幕等）
+*/
+
 interface RouterItem {
   description: string;
   path: string;
