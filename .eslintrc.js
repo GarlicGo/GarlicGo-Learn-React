@@ -9,7 +9,9 @@ const ignoreWords = [
   'Rect',
   'Renderer',
   'antialias',
-  'ctx'
+  'ctx',
+  'axios',
+  'href'
 ];
 
 module.exports = {

@@ -8,6 +8,7 @@ const ThreeJS = lazy(() => import('./pages/ThreeJS'));
 const ReactSpring = lazy(() => import('./pages/ReactSpring'));
 const Watermark = lazy(() => import('./pages/Watermark'));
 const ClientStorage = lazy(() => import('./pages/ClientStorage'));
+const FileSaver = lazy(() => import('./pages/FileSaver'));
 
 /**
  * TODO:
@@ -44,6 +45,11 @@ const routerConfig: RouterConfigItem[] = [
     description: '[ Web 2D/3D 系列 ] ThreeJS 探索',
     path: 'ThreeJS',
     element: <ThreeJS />,
+  },
+  {
+    description: '文件下载',
+    path: 'FileSaver',
+    element: <FileSaver />,
   },
   {
     description: '客户端存储',
