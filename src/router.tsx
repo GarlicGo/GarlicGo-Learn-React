@@ -9,6 +9,7 @@ const ReactSpring = lazy(() => import('./pages/ReactSpring'));
 const Watermark = lazy(() => import('./pages/Watermark'));
 const ClientStorage = lazy(() => import('./pages/ClientStorage'));
 const FileSaver = lazy(() => import('./pages/FileSaver'));
+const JZJAnimation = lazy(() => import('./pages/JZJAnimation'));
 
 /**
  * TODO:
@@ -31,6 +32,11 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
+  {
+    description: 'Animation',
+    path: 'Animation',
+    element: <JZJAnimation />,
+  },
   {
     description: '前端明水印',
     path: 'Watermark',
