@@ -15,5 +15,5 @@
       "noEmit": true,
       "jsx": "react", // react18这里也可以改成react-jsx
     },
-    "include": ["./src"]
+    "include": ["./src", "public/langs/zh-Hans.js"]
   }

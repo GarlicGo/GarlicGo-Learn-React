@@ -5,13 +5,17 @@ const ignoreWords = [
   'randomstring',
   'memoized',
   'unmount',
-  'Debounce',
-  'Rect',
-  'Renderer',
+  'debounce',
+  'rect',
+  'renderer',
   'antialias',
   'ctx',
   'axios',
-  'href'
+  'href',
+  'directionality',
+  'letterspacing',
+  'filetype',
+  'uri'
 ];
 
 module.exports = {

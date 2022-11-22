@@ -10,6 +10,7 @@ const Watermark = lazy(() => import('./pages/Watermark'));
 const ClientStorage = lazy(() => import('./pages/ClientStorage'));
 const FileSaver = lazy(() => import('./pages/FileSaver'));
 const JZJAnimation = lazy(() => import('./pages/JZJAnimation'));
+const TinyMCE = lazy(() => import('./pages/TinyMCE'));
 
 /**
  * TODO:
@@ -32,6 +33,11 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
+  {
+    description: '[ 富文本系列 ] TinyMCE',
+    path: 'TinyMCE',
+    element: <TinyMCE />,
+  },
   {
     description: 'Animation',
     path: 'Animation',
