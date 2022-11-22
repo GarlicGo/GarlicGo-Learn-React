@@ -219,7 +219,7 @@ module.exports = {
   },
   devServer: {
     host: "localhost",
-    port: 3000,
+    port: 3001,
     open: true,
     // 开启HMR
     hot: true,
