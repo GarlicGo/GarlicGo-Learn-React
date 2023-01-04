@@ -15,7 +15,10 @@ const ignoreWords = [
   'directionality',
   'letterspacing',
   'filetype',
-  'uri'
+  'uri',
+  'uint8',
+  'Uint8',
+  'xhr'
 ];
 
 module.exports = {

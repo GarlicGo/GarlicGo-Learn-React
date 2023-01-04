@@ -1,19 +1,19 @@
-import React from "react";
-import axios from "axios";
-import { saveAs } from "file-saver";
-import { Button, Input, Notification, Space } from "@douyinfe/semi-ui";
-import { useMemoizedFn } from "ahooks";
-import { getFileExtension } from "../../common/utils";
+import React from 'react';
+import axios from 'axios';
+import { saveAs } from 'file-saver';
+import { Button, Input, Notification, Space } from '@douyinfe/semi-ui';
+import { useMemoizedFn } from 'ahooks';
+import { getFileExtension } from '../../common/utils';
 
 const FileSaver = () => {
-  const [url, setUrl] = React.useState("");
+  const [url, setUrl] = React.useState('');
   const [progress, setProgress] = React.useState(0);
 
   const handleDownload = useMemoizedFn(() => {
     if (!url) {
       Notification.warning({
-        title: "请输入下载地址",
-        position: "top",
+        title: '请输入下载地址',
+        position: 'top',
       });
       return;
     }
@@ -24,15 +24,15 @@ const FileSaver = () => {
   const handleDownloadBigFile = useMemoizedFn(() => {
     if (!url) {
       Notification.warning({
-        title: "请输入下载地址",
-        position: "top",
+        title: '请输入下载地址',
+        position: 'top',
       });
       return;
     }
     axios({
       url,
-      responseType: "blob",
-      method: "GET",
+      responseType: 'blob',
+      method: 'GET',
       onDownloadProgress: (progressEvent) => {
         if (!progressEvent || !progressEvent.total) {
           return;
@@ -49,11 +49,39 @@ const FileSaver = () => {
       })
       .catch((err) => {
         Notification.error({
-          title: "下载出错",
+          title: '下载出错',
           position: err.message,
         });
       });
   });
+
+  const handleDownBlobFile = useMemoizedFn(() => {
+    // const url = 'https://xcyy.nwpu.edu.cn/api/admin/list/excel';
+    // if (!url) {
+    //   Notification.warning({
+    //     title: '请输入下载地址',
+    //     position: 'top',
+    //   });
+    //   return;
+    // }
+    axios({
+      url: 'https://xcyy.nwpu.edu.cn/api/admin/list/excel',
+      responseType: 'blob',
+      method: 'post',
+    })
+      .then(() => {
+        // const blob = new Blob([res.data]);
+        // // 创建 url 并指向 blob
+        // const blobUrl = window.URL.createObjectURL(blob);
+        // saveAs(blobUrl, `下载文件${Date.now()}.${getFileExtension(url)}`);
+        // let data = res;
+      })
+      .catch(() => {
+        // console.log('err', err);
+      });
+  });
+
+  // https://xcyy.nwpu.edu.cn/api/admin/list/excel
 
   return (
     <div>
@@ -70,6 +98,10 @@ const FileSaver = () => {
         <Button onClick={handleDownloadBigFile}>大文件下载（显示进度）</Button>
         {progress > 0 && <span>下载进度{progress.toFixed(2)}%</span>}
       </Space>
+      <div>
+        二进制流
+        <Button onClick={handleDownBlobFile}>下载</Button>
+      </div>
     </div>
   );
 };

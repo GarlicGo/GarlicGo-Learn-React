@@ -11,6 +11,9 @@ const ClientStorage = lazy(() => import('./pages/ClientStorage'));
 const FileSaver = lazy(() => import('./pages/FileSaver'));
 const JZJAnimation = lazy(() => import('./pages/JZJAnimation'));
 const TinyMCE = lazy(() => import('./pages/TinyMCE'));
+const QRCode = lazy(() => import('./pages/QRCode'));
+const Add = lazy(() => import('./pages/Add'));
+const GlobalApi = lazy(() => import('./pages/GlobalApi'));
 
 /**
  * TODO:
@@ -33,6 +36,21 @@ interface RouterConfigItem {
 }
 
 const routerConfig: RouterConfigItem[] = [
+  {
+    description: 'GlobalApi',
+    path: 'GlobalApi',
+    element: <GlobalApi />,
+  },
+  {
+    description: '动态加载组件',
+    path: 'Add',
+    element: <Add />,
+  },
+  {
+    description: 'QRCode',
+    path: 'QRCode',
+    element: <QRCode />,
+  },
   {
     description: '[ 富文本系列 ] TinyMCE',
     path: 'TinyMCE',

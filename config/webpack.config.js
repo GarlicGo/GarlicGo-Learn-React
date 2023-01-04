@@ -7,6 +7,7 @@ const TerserWebpackPlugin = require("terser-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+// const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 // 获取cross-env定义的环境变量
 const isProduction = process.env.NODE_ENV === "production";
@@ -117,6 +118,7 @@ module.exports = {
   },
   // 处理html
   plugins: [
+    // new NodePolyfillPlugin(),
     new EslintWebpackPlugin({
       context: path.resolve(__dirname, "../src"),
       exclude: "node_modules",
