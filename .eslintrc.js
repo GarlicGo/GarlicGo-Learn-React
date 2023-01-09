@@ -18,7 +18,8 @@ const ignoreWords = [
   'uri',
   'uint8',
   'Uint8',
-  'xhr'
+  'xhr',
+  'Swiper'
 ];
 
 module.exports = {

@@ -4,13 +4,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
-const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+// const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-// const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 // 获取cross-env定义的环境变量
 const isProduction = process.env.NODE_ENV === "production";
+const STATIC_FILE_NAME = 'fe_static';
 
 // 返回处理样式loader函数
 const getStyleLoaders = (pre) => {
@@ -29,17 +29,6 @@ const getStyleLoaders = (pre) => {
     },
     pre && {
       loader: pre,
-      options:
-        pre === "less-loader"
-          ? {
-              // antd自定义主题配置
-              // 主题色文档：https://ant.design/docs/react/customize-theme-cn#Ant-Design-%E7%9A%84%E6%A0%B7%E5%BC%8F%E5%8F%98%E9%87%8F
-              lessOptions: {
-                modifyVars: { "@primary-color": "#1DA57A" },
-                javascriptEnabled: true,
-              },
-            }
-          : {},
     },
   ].filter(Boolean);
 };
@@ -47,14 +36,15 @@ const getStyleLoaders = (pre) => {
 module.exports = {
   entry: "./src/index.tsx",
   output: {
-    path: isProduction ? path.resolve(__dirname, "../dist") : undefined,
+    publicPath: '/',
+    path: isProduction ? path.resolve(__dirname, "./dist") : undefined,
     filename: isProduction
-      ? "static/js/[name].[contenthash:10].js"
-      : "static/js/[name].js",
+      ? `${STATIC_FILE_NAME}/js/[name].[contenthash:10].js`
+      : `${STATIC_FILE_NAME}/js/[name].js`,
     chunkFilename: isProduction
-      ? "static/js/[name].[contenthash:10].chunk.js"
-      : "static/js/[name].chunk.js",
-    assetModuleFilename: "static/media/[hash:10][ext][query]",
+      ? `${STATIC_FILE_NAME}/js/[name].[contenthash:10].chunk.js`
+      : `${STATIC_FILE_NAME}/js/[name].chunk.js`,
+    assetModuleFilename: `${STATIC_FILE_NAME}/media/[hash:10][ext][query]`,
     clean: true,
   },
   module: {
@@ -94,7 +84,7 @@ module.exports = {
       // 处理js
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, "../src"),
+        include: path.resolve(__dirname, "./src"),
         loader: "babel-loader",
         options: {
           cacheDirectory: true,
@@ -118,30 +108,29 @@ module.exports = {
   },
   // 处理html
   plugins: [
-    // new NodePolyfillPlugin(),
     new EslintWebpackPlugin({
-      context: path.resolve(__dirname, "../src"),
+      context: path.resolve(__dirname, "./src"),
       exclude: "node_modules",
       cache: true,
       cacheLocation: path.resolve(
         __dirname,
-        "../node_modules/.cache/.eslintcache"
+        "./node_modules/.cache/.eslintcache"
       ),
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../public/index.html"),
+      template: path.resolve(__dirname, "./public/index.html"),
     }),
     isProduction &&
       new MiniCssExtractPlugin({
-        filename: "static/css/[name].[contenthash:10].css",
-        chunkFilename: "static/css/[name].[contenthash:10].chunk.css",
+        filename: `${STATIC_FILE_NAME}/css/[name].[contenthash:10].css`,
+        chunkFilename: `${STATIC_FILE_NAME}/css/[name].[contenthash:10].chunk.css`,
       }),
     isProduction &&
       new CopyPlugin({
         patterns: [
           {
-            from: path.resolve(__dirname, "../public"),
-            to: path.resolve(__dirname, "../dist"),
+            from: path.resolve(__dirname, "./public"),
+            to: path.resolve(__dirname, "./dist"),
             globOptions: {
               // 忽略index.html文件
               ignore: ["**/index.html"],
@@ -182,40 +171,13 @@ module.exports = {
     },
     // 是否需要进行压缩
     minimize: isProduction,
-    minimizer: [
-      new CssMinimizerWebpackPlugin(),
-      new TerserWebpackPlugin(),
-      new ImageMinimizerPlugin({
-        minimizer: {
-          implementation: ImageMinimizerPlugin.imageminGenerate,
-          options: {
-            plugins: [
-              ["gifsicle", { interlaced: true }],
-              ["jpegtran", { progressive: true }],
-              ["optipng", { optimizationLevel: 5 }],
-              [
-                "svgo",
-                {
-                  plugins: [
-                    "preset-default",
-                    "prefixIds",
-                    {
-                      name: "sortAttrs",
-                      params: {
-                        xmlnsOrder: "alphabetical",
-                      },
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-      }),
-    ],
+    minimizer: [new CssMinimizerWebpackPlugin(), new TerserWebpackPlugin()],
   },
   // webpack解析模块加载选项
   resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
     // 自动补全文件扩展名
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
@@ -227,6 +189,12 @@ module.exports = {
     hot: true,
     // 解决前端路由刷新404问题
     historyApiFallback: true,
+    proxy: {
+      "/api": {
+        target: "http://120.46.187.218:8081",
+        changeOrigin: true,
+      },
+    },
   },
   // 关闭性能分析，提升打包速度
   performance: false,
